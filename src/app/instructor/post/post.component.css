@@ -1,0 +1,12 @@
+/* posts */
+.img_post img{
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  outline: 2px solid #eee;
+  margin-right: .6rem;
+}
+.img_post span{
+  font-size: 1rem;
+}

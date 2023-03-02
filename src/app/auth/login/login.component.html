@@ -1,0 +1,42 @@
+
+
+
+
+
+
+
+
+<div class="w-50  mx-auto  p-5 shadow mt-5 ">
+
+  <h2 class="text-center my-4">Login Now</h2>
+  <div class="alert alert-danger m-2" *ngIf="error">
+    <p>{{error}}</p>
+  </div>
+  <form    [formGroup]="loginForm"   (ngSubmit)="submitRegisterForm(loginForm)">
+  <!-- <h1>{{loginForm.get('first_name')?.errors|json}}</h1> -->
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Email</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="email">
+      <div class="alert alert-danger mt-2" *ngIf="loginForm.get('email')?.errors!= null && loginForm.get('email')?.touched">
+         <p *ngIf="loginForm.controls['email'].hasError('required')">email is required</p>
+         <p *ngIf="loginForm.controls['email'].hasError('email')">invalid email</p>
+      </div>
+      </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Password </label>
+      <input type="password" class="form-control" id="exampleFormControlInput1" formControlName="password">
+      <div class="alert alert-danger mt-2" *ngIf="loginForm.get('password')?.errors!= null && loginForm.get('password')?.touched">
+        <p *ngIf="loginForm.controls['password'].hasError('required')">password is required</p>
+        <!-- <p *ngIf="loginForm.controls['password'].hasError('pattern')">invalid password</p> -->
+     </div>
+    </div>
+    <!-- <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="device_name"   value="oppo"> -->
+  <div class="mb-3  text-center">
+    <button  class="btn  px-5"  >Login </button>
+  </div>
+
+  </form>
+
+
+  </div>
+
