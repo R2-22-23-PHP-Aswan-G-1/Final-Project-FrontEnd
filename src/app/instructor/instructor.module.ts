@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -15,7 +16,6 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     PostComponent,
     InformationComponent,
     ProfileComponent,
-
   ],
   imports: [
     CommonModule,
@@ -23,8 +23,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     RouterModule,
     BrowserAnimationsModule,
     CarouselModule ,
-
-
+    HttpClientModule,
   ],
   exports:[
 ProfileComponent,
