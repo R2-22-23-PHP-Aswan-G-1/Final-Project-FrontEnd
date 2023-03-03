@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TestimonialsService } from '../services/testimonials.service';
@@ -9,7 +9,7 @@ import { TestimonialsService } from '../services/testimonials.service';
   styleUrls: ['./testimonial.component.css']
 })
 export class TestimonialComponent {
-
+@Input()  testimonials:any;
 constructor(private testimonialsService:TestimonialsService){}
 
 

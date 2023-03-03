@@ -1,5 +1,5 @@
 
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit ,Input} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { RoleService } from 'src/app/services/role.service';
@@ -13,7 +13,7 @@ import { InformationsService } from '../services/informations.service';
   styleUrls: ['./information.component.css']
 })
 export class InformationComponent implements OnInit{
-  instructorInfo :any ;
+ @Input() instructorInfo :any ;
   constructor(private informationsService:InformationsService,private roleService:RoleService){}
 
 
