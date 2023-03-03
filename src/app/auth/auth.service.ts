@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class AuthService {
 checkLogin=new BehaviorSubject<boolean>(false)
 userToken=new BehaviorSubject<any>(null);
+id =new BehaviorSubject<number>(0);
+
   constructor(private  httpClient: HttpClient , private router:Router) {
 if(localStorage.getItem('userToken')!=null){
   this.token();
