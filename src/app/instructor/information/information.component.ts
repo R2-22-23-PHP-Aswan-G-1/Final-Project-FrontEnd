@@ -1,6 +1,8 @@
+
 import { Component,OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { RoleService } from 'src/app/services/role.service';
 import { InstructorModule } from '../instructor.module';
 import { InformationsService } from '../services/informations.service';
 
@@ -12,27 +14,22 @@ import { InformationsService } from '../services/informations.service';
 })
 export class InformationComponent implements OnInit{
   instructorInfo :any ;
-  constructor(private informationsService:InformationsService){}
+  constructor(private informationsService:InformationsService,private roleService:RoleService){}
 
 
 ngOnInit(): void {
-  
- this.getInfo();
+ this.getInfo()
+ 
 }
+
 
 
 getInfo(){
-  this.informationsService.getInstructorInfo(1).subscribe((response)=>{
-
-
-this.instructorInfo= response;
-
-console.log(this.instructorInfo);
-
-
-  })
+ if( this.roleService.instructor.getValue() != null){
+  console.log(this.roleService.instructor.getValue())
+ this.instructorInfo= this.roleService.instructor.getValue()
+ }
 }
-
 
 
 

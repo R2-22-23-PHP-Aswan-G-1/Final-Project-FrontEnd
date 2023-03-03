@@ -27,10 +27,10 @@ submitRegisterForm(loginForm:FormGroup){
   if(loginForm.valid){
   this.authService.login(this.loginForm.value).subscribe((response)=>{
     console.log(response.data);
-    if(response.data != null){
+    if(response.message == "success"){
       this.roleService.getInfo(response.data.role,response.data);
-      console.log(this.roleService.instructor.getValue());
-     localStorage.setItem('userToken',response.data.token);
+     
+     localStorage.setItem('userToken',JSON.stringify(response.data));
      this.authService.token();
      this.router.navigate(['/home'])
     }else{
@@ -44,5 +44,9 @@ this.error=response.message
 
  }
 }
+
+
+
+
 
 }

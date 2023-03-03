@@ -9,12 +9,15 @@ import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     TestimonialComponent,
     PostComponent,
     InformationComponent,
     ProfileComponent,
+
 
   ],
   imports: [
@@ -23,7 +26,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     RouterModule,
     BrowserAnimationsModule,
     CarouselModule ,
-
+    HttpClientModule,
 
   ],
   exports:[

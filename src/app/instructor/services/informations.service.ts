@@ -19,7 +19,7 @@ export class InformationsService {
 
 
 getInstructorInfo(id:number):Observable<any>{
-  return  this.httpClient.get(`http://127.0.0.1:8000/api//instructor/${id}`)
+  return  this.httpClient.get(`http://127.0.0.1:8000/api/instructor/${id}`)
 }
 
 
