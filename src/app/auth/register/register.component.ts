@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { CustomValidators } from '../custom-validators';
 
 
 @Component({
@@ -12,16 +13,21 @@ import { AuthService } from '../auth.service';
 export class RegisterComponent  implements OnInit{
 
 error:string=""
-
+private customValidators= new CustomValidators();
 registerForm:FormGroup=new FormGroup({
 name:new FormControl(null,[Validators.required,Validators.maxLength(10),Validators.minLength(3)]),
   
 email:new FormControl(null,[Validators.required,Validators.email]),
 
 password:new FormControl(null,[Validators.required]),
-})
+confirmPassword:new FormControl(null,[Validators.required]),
+},
 
-constructor(private authService:AuthService , private router:Router){}
+{validators:this.customValidators.passwordMatch}
+
+)
+
+constructor(private authService:AuthService , private router:Router ){}
 ngOnInit(): void {
 
 }

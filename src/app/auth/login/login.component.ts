@@ -13,14 +13,23 @@ import { RoleService } from 'src/app/services/role.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  error :string=''
-loginForm:FormGroup=new FormGroup({
-  email:new FormControl(null,[Validators.required,Validators.email]),
-  password:new FormControl(null,[Validators.required]),
+  error: string = ''
 
-})
+  loginForm: FormGroup = new FormGroup({
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required]),
+  
 
-constructor(private router:Router ,private authService:AuthService ,private roleService:RoleService){}
+  })
+
+
+constructor(private router:Router ,private authService:AuthService ,private roleService:RoleService){
+
+
+ 
+
+
+}
 
 
 submitRegisterForm(loginForm:FormGroup){
@@ -30,23 +39,26 @@ submitRegisterForm(loginForm:FormGroup){
     if(response.message == "success"){
       this.roleService.getInfo(response.data.role,response.data);
      
-     localStorage.setItem('userToken',JSON.stringify(response.data));
+     localStorage.setItem('id',response.data.id);
+     localStorage.setItem('token',response.data.token);
+     console.log(localStorage.getItem('token'))
+     console.log(localStorage.getItem('id'))
+    
+
+
+
+   
      this.authService.token();
      this.router.navigate(['/home'])
     }else{
 
 this.error=response.message
 
+
     }
-
- }
- )
-
- }
-}
-
-
-
+  })
+  }
+  }
 
 
 }

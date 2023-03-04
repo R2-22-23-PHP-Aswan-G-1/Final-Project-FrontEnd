@@ -24,8 +24,4 @@ export class RoleService {
       this.admin.next(info);
     }
   }
-
-
-
-
 }

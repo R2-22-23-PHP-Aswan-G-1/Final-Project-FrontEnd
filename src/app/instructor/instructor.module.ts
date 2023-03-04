@@ -1,6 +1,6 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { InstructorRoutingModule } from './instructor-routing.module';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { PostComponent } from './post/post.component';
@@ -17,8 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
     PostComponent,
     InformationComponent,
     ProfileComponent,
-
-
   ],
   imports: [
     CommonModule,
@@ -27,7 +25,6 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     CarouselModule ,
     HttpClientModule,
-
   ],
   exports:[
 ProfileComponent,

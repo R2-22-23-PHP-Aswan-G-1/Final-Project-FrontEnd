@@ -14,7 +14,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   {path:"login",component:LoginComponent},
   {path:'home', component: HomeComponent,canActivate:[AuthonGuard]},
   {path:'profile',component:ProfileComponent},
-
+  {path:'landing',component:ProfileComponent},
   {path:"**",component:NotFoundComponent}
 ];
 

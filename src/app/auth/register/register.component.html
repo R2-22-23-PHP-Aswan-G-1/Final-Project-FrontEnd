@@ -45,6 +45,19 @@
      </div>
     </div>
 
+
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Confirm Password </label>
+      <input type="password" class="form-control" id="exampleFormControlInput1" formControlName="confirmPassword">
+      <div class="alert alert-danger mt-2" *ngIf="registerForm.get('confirmPassword')?.errors!= null && registerForm.get('confirmPassword')?.touched">
+        <p *ngIf="registerForm.controls['confirmPassword'].hasError('required')">confirm Passwordis required</p>
+     </div>
+
+     <p *ngIf="registerForm.errors?.['UnmatchedPassword']!==null  && registerForm.get('confirmPassword')?.touched "> password mismatch</p>
+
+    </div>
+
   <div class="mb-3  text-center">
     <button  class="btn btn-light px-5"  [disabled]="registerForm.invalid">Register </button>
   </div>

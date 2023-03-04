@@ -9,7 +9,9 @@ export class ProfileComponent {
 
 instructorInfo:any;
 posts:any;
-testimonials:any;
+testimonials:any
+constructor(){}
+
 
 
 
