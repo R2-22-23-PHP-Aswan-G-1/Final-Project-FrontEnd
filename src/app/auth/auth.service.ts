@@ -7,12 +7,9 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-checkLogin=new BehaviorSubject<boolean>(false)
 userToken=new BehaviorSubject<any>(null);
-id =new BehaviorSubject<number>(0);
-
-  constructor(private  httpClient: HttpClient , private router:Router) {
-if(localStorage.getItem('userToken')!=null){
+constructor(private  httpClient: HttpClient , private router:Router) {
+if(localStorage.getItem('token')!=null){
   this.token();
 }
 
@@ -21,19 +18,21 @@ if(localStorage.getItem('userToken')!=null){
 
 
 token(){
-  this.userToken.next(localStorage.getItem('userToken'))
+  this.userToken.next(localStorage.getItem('token'));
+  
 }
+
 logout(){
-  localStorage.removeItem('userToken');
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
 this.userToken.next(null);
 this.router.navigate(['/login'])
 }
 
+
 register(formData:object ):Observable<any>{
  return  this.httpClient.post(`http://127.0.0.1:8000/api/register`,formData)
 }
-
-
 
 login(formData:object ):Observable<any>{
   return  this.httpClient.post(`http://127.0.0.1:8000/api/login`,formData)

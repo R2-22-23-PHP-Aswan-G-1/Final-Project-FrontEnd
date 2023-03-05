@@ -5,7 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { RoleService } from 'src/app/services/role.service';
+import { UserDataService } from 'src/app/services/user-data.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +23,7 @@ export class LoginComponent {
   })
 
 
-constructor(private router:Router ,private authService:AuthService ,private roleService:RoleService){
+constructor(private router:Router ,private authService:AuthService ,private userDataService:UserDataService){
 
 
  
@@ -32,23 +32,16 @@ constructor(private router:Router ,private authService:AuthService ,private role
 }
 
 
-submitRegisterForm(loginForm:FormGroup){
+   submitRegisterForm(loginForm:FormGroup){
   if(loginForm.valid){
   this.authService.login(this.loginForm.value).subscribe((response)=>{
-    console.log(response.data);
+    console.log(response);
     if(response.message == "success"){
-      this.roleService.getInfo(response.data.role,response.data);
-     
-     localStorage.setItem('id',response.data.id);
-     localStorage.setItem('token',response.data.token);
-     console.log(localStorage.getItem('token'))
-     console.log(localStorage.getItem('id'))
-    
-
-
-
-   
+   localStorage.setItem('token',response.token)
+   localStorage.setItem('user',JSON.stringify(response.user))
      this.authService.token();
+    this.userDataService.token();
+    this.userDataService.userData()
      this.router.navigate(['/home'])
     }else{
 

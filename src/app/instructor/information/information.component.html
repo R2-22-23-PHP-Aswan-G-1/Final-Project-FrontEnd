@@ -7,24 +7,26 @@
             <figure class=" info_img">
               <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" srcset="" class=" rounded-circle " style="width: 70px; height: 70px;">
             </figure>
-           <div class="ps-5">
+           <div class="ps-3">
             <h4>Alaa Ahmed </h4>
-            <p>Full Stack Developer/PHP</p>
+            <p class="">Full Stack Developer/PHP</p>
 
            </div>
-           <div class="edit     position-absolute ">
-            <i class="fa-solid fa-pen me-2"           data-bs-toggle="modal" data-bs-target="#enameEdit" data-bs-whatever="@mdo"   ></i>
-            <i class="fa-solid fa-plus"></i>
+           <div class="edit position-absolute ">
+            <i class="fa-solid fa-pen me-2"           data-bs-toggle="modal" data-bs-target="#editTrak" data-bs-whatever="@mdo"   ></i>
+            <i class="fa-solid fa-plus  "    data-bs-toggle="modal" data-bs-target="#addTrak" data-bs-whatever="@mdo" ></i>
           </div>
           </div>  <!-- send -->
           <hr>
           <!-- start -->
-            <h6>Profile Compeletness:<h6>
-              <div class="progress w-75">
-                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%
-                </div>
+           
+              <h6>Profile Compeletness:<h6>
+                <div class="progress w-75">
+                  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%
+                  </div>
+            </div>
   
-              </div>
+             
           
             <!-- send -->
 
@@ -38,8 +40,8 @@
 
 
             <div class="edit     position-absolute ">
-              <i class="fa-solid fa-pen me-2"         data-bs-toggle="modal" data-bs-target="#education" data-bs-whatever="@mdo"></i>
-              <i class="fa-solid fa-plus"                       data-bs-toggle="modal" data-bs-target="#educationAdd" data-bs-whatever="@mdo"></i>
+              <i class="fa-solid fa-pen me-2"         data-bs-toggle="modal" data-bs-target="#editEducation" data-bs-whatever="@mdo"></i>
+              <i class="fa-solid fa-plus"                       data-bs-toggle="modal" data-bs-target="#addEducation" data-bs-whatever="@mdo"></i>
             </div>
           </div><!-- send -->
 
@@ -84,15 +86,15 @@
               </div><!-- send -->
 
 
-<!-- name -->
-<div class="nameModel">
+<!-- trak ------------------------------------------------------------------------------------------------>
+<div class="TrakModel">
 
 <!-- start -->
-<div class="modal fade" id="enameEdit" tabindex="-1" aria-labelledby="enameEditLabel" aria-hidden="true">
+<div class="modal fade" id="editTrak" tabindex="-1" aria-labelledby="editTrak" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="enameEditLabel">edit name </h1>
+        <h1 class="modal-title fs-5" id="editTrak">Edit Trak </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -101,15 +103,49 @@
             <label for="recipient-name" class="col-form-label">Recipient:</label>
             <input type="text" class="form-control" id="recipient-name">
           </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-save">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- start -->
+<div class="modal fade" id="addTrak" tabindex="-1" aria-labelledby="addTrak" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addTrak">Add  Trak </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-save">Send message</button>
       </div>
     </div>
   </div>
@@ -119,14 +155,14 @@
 
 </div>
 
-<!-- education -->
+<!-- education ----------------------------------------------------------------------------------------------->
 <div class="educationModal">
 <!-- start  -->
-              <div class="modal fade" id="education" tabindex="-1" aria-labelledby="educationLabel" aria-hidden="true">
+              <div class="modal fade" id="addEducation" tabindex="-1" aria-labelledby="addEducation" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="educationLabel">New message</h1>
+                      <h1 class="modal-title fs-5" id="addEducation">Add Education</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -142,8 +178,8 @@
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Send message</button>
+                      <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-save">Send message</button>
                     </div>
                   </div>
                 </div>
@@ -156,11 +192,11 @@
 
 <!-- start -->
 
-<div class="modal fade" id="educationAdd" tabindex="-1" aria-labelledby="educationAddLabel" aria-hidden="true">
+<div class="modal fade" id="editEducation" tabindex="-1" aria-labelledby="editEducation" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="educationAddLabel">edu Add </h1>
+        <h1 class="modal-title fs-5" id="editEducation">Edit Education </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -176,8 +212,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-save">Send message</button>
       </div>
     </div>
   </div>
@@ -188,7 +224,7 @@
 
 
 
-<!-- about me -->
+<!-- about me -------------------------------------------------------------------------------------------------->
 
 <div class="aboutMe">
 
@@ -198,24 +234,28 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="nameLabel">edu Add </h1>
+        <h1 class="modal-title fs-5" id="aboutMeEdi">Edit Info</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <label for="recipient-aboutMeEdit" class="col-form-label">Recipient:</label>
+            <label for="recipient-aboutMeEdit" class="col-form-label">Job Title</label>
             <input type="text" class="form-control" id="recipient-name">
           </div>
           <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
+            <label for="message-text" class="col-form-label">Info</label>
             <textarea class="form-control" id="message-text"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="recipient-aboutMeEdit" class="col-form-label"> Skill</label>
+            <input type="text" class="form-control" id="recipient-name">
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-save">Send message</button>
       </div>
     </div>
   </div>
@@ -226,31 +266,37 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="nameLabel">aboutMe Add </h1>
+        <h1 class="modal-title fs-5" id="nameLabel">Add Info  </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <label for="recipient-aboutMeAdd" class="col-form-label">Recipient:</label>
+            <label for="recipient-aboutMeEdit" class="col-form-label">Job Title</label>
             <input type="text" class="form-control" id="recipient-name">
           </div>
           <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
+            <label for="message-text" class="col-form-label">Info</label>
             <textarea class="form-control" id="message-text"></textarea>
           </div>
+          <select class="form-select" aria-label="Default select example" multiple>
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-save">Send message</button>
       </div>
     </div>
   </div>
 </div>
 
 </div>
-<!-- work history -->
+<!-- work history ------------------------------------------------------------------------------------------>
 
 <div class="work">
 
@@ -259,24 +305,21 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="nameLabel">work Add </h1>
+        <h1 class="modal-title fs-5" id="nameLabel">Add Work Histry </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
+          
           <div class="mb-3">
-            <label for="recipient-aboutMeAdd" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
+            <label for="message-text" class="col-form-label">MWork Histry :</label>
             <textarea class="form-control" id="message-text"></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-save">Send message</button>
       </div>
     </div>
   </div>
@@ -287,24 +330,21 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="nameLabel">work edit </h1>
+        <h1 class="modal-title fs-5" id="nameLabel">Edit Work Histry  </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
+          
           <div class="mb-3">
-            <label for="recipient-aboutMeAdd" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
+            <label for="message-text" class="col-form-label">Work Histry </label>
             <textarea class="form-control" id="message-text"></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-save">Send message</button>
       </div>
     </div>
   </div>

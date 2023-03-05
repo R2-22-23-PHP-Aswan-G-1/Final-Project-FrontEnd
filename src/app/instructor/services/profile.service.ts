@@ -6,7 +6,10 @@ import { Observable } from 'rxjs';
 })
 
 export class ProfileService {
-  api_key = "24|eaC0r6PuMJa23rjWW90XhqOrAHqIhEKjZtG4j6Q8";
+
+
+api_key=localStorage.getItem('token');
+
   headers = new HttpHeaders({
     'Accept': 'application/json',
     'Authorization': `Bearer ${this.api_key}`

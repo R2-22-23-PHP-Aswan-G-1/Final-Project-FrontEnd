@@ -15,8 +15,8 @@
 
 .edit
 {
-top: 10px;
-right: 10px;
+top: -1px;
+right: 5px;
 padding-bottom: 10px;
 }
 
@@ -31,4 +31,26 @@ border: 1px solid #1787e0;
 color:rgb(3, 37, 65) ;
 
 
+}
+/* modal */
+.modal-header{
+  background-color: var(--main-color);
+ 
+}
+
+.modal-title{
+  color: #fff;
+}
+
+.btn-save{
+  background:linear-gradient(45deg  , var(--main-color-alt) ,var(--sec-color) );
+  color: #fff;
+}
+
+.btn-cancel{
+  background-color:var(--main-color) ;
+  color: #fff;
+}
+.btn-close{
+  background-color: #fff;
 }
