@@ -4,7 +4,10 @@
 
       <!-- start -->
           <div class=" d-flex  justify-content-start align-items-center     mt-3   position-relative ">
-            <figure class=" info_img">
+            <figure class=" info_img position-relative">
+             
+              <i class="fa-solid fa-plus  position-absolute img_icon"    data-bs-toggle="modal" data-bs-target="#img" data-bs-whatever="@mdo" ></i>
+             
               <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" srcset="" class=" rounded-circle " style="width: 70px; height: 70px;">
             </figure>
            <div class="ps-3">
@@ -86,35 +89,39 @@
               </div><!-- send -->
 
 
-<!-- trak ------------------------------------------------------------------------------------------------>
-<div class="TrakModel">
+<!-- majority ------------------------------------------------------------------------------------------------>
+<div class="magiorModel">
 
 <!-- start -->
 <div class="modal fade" id="editTrak" tabindex="-1" aria-labelledby="editTrak" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="editTrak">Edit Trak </h1>
+        <h1 class="modal-title fs-5" id="editTrak">Edit Majority</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <select class="form-select" aria-label="Default select example">
+      
+        <form    [formGroup]="majorForm" (ngSubmit)="updateMajor(majorForm)" >
+          <div class="modal-body">
+                   <div class="pb-2"        *ngIf="majorForm.get('major')?.errors!= null && majorForm.get('major')?.touched"  >
+                    <small class="text-danger p-1"  *ngIf="majorForm.controls['major'].hasError('required')" >filed is required </small>
+                   </div>
+          <select class="form-select form-select-lg mb-3 " aria-label=".form-select-lg example"   formControlName="major">
             <option selected>Open this select menu</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
           </select>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-save"  [disabled]="majorForm.invalid" >Send Data</button>
+        </div>
+
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-save">Send message</button>
-      </div>
+     
+      
     </div>
   </div>
 </div>
@@ -126,28 +133,30 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="addTrak">Add  Trak </h1>
+        <h1 class="modal-title fs-5" id="addTrak">Add  majority </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form  [formGroup]="majorForm"  (ngSubmit)="updateMajor(majorForm)">
       <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        </form>
+        <div class="pb-2"        *ngIf="majorForm.get('major')?.errors!= null && majorForm.get('major')?.touched"  >
+          <small class="text-danger p-1"  *ngIf="majorForm.controls['major'].hasError('required')" >filed is required </small>
+         </div>
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"  formControlName="major" >
+        
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-save">Send message</button>
+        <button type="submit" class="btn btn-save"  [disabled]="majorForm.invalid">Add</button>
       </div>
+    </form>
+
     </div>
+
   </div>
 </div>
 <!-- start -->
@@ -165,22 +174,25 @@
                       <h1 class="modal-title fs-5" id="addEducation">Add Education</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <form   [formGroup]="educationForm "  (ngSubmit)="addEducation(educationForm)">
                     <div class="modal-body">
-                      <form>
+                    
+
+                      <div class="pb-2"        *ngIf="educationForm.get('education')?.errors!= null && educationForm.get('education')?.touched"  >
+                        <small class="text-danger p-1"  *ngIf="educationForm.controls['education'].hasError('required')" >filed is required </small>
+                       </div>
                         <div class="mb-3">
-                          <label for="recipient-name" class="col-form-label">Recipient:</label>
-                          <input type="text" class="form-control" id="recipient-name">
+                          <label for="recipient-name" class="col-form-label">Education:</label>
+                          <input type="text" class="form-control" id="recipient-name"   formControlName="education">
                         </div>
-                        <div class="mb-3">
-                          <label for="message-text" class="col-form-label">Message:</label>
-                          <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                      </form>
+                        
+                     
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-save">Send message</button>
+                      <button type="submit" class="btn btn-save" [disabled]="educationForm.invalid">Send message</button>
                     </div>
+                  </form>
                   </div>
                 </div>
               </div>
@@ -200,20 +212,20 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form   [formGroup]="educationForm "  (ngSubmit)="updateEducation(educationForm)">
+          <div class="pb-2"        *ngIf="educationForm.get('education')?.errors!= null && educationForm.get('education')?.touched"  >
+            <small class="text-danger p-1"  *ngIf="educationForm.controls['education'].hasError('required')" >filed is required </small>
+           </div>
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <label for="recipient-name" class="col-form-label">Education</label>
+            <input type="text" class="form-control" id="recipient-name"   formControlName="education">
           </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
+          
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-save">Send message</button>
+        <button type="submit" class="btn btn-save" [disabled]="educationForm.invalid">Send message</button>
       </div>
     </div>
   </div>
@@ -237,26 +249,47 @@
         <h1 class="modal-title fs-5" id="aboutMeEdi">Edit Info</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form    [formGroup]="aboutMeForm"  (ngSubmit)="updateAboutMe(aboutMeForm)">
       <div class="modal-body">
-        <form>
+        <div class="pb-2"        *ngIf="aboutMeForm.get('trak')?.errors!= null && aboutMeForm.get('trak')?.touched"  >
+          <small class="text-danger p-1"  *ngIf="aboutMeForm.controls['trak'].hasError('required')" >filed is required </small>
+         </div>
           <div class="mb-3">
-            <label for="recipient-aboutMeEdit" class="col-form-label">Job Title</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <label for="message-text" class="col-form-label">Trak</label>
+
+          <select class="form-select form-select-lg " aria-label=".form-select-lg example"  formControlName="trak"  >
+        
+            <option value="1" selected>One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
           </div>
+          <div class="pb-2"        *ngIf="aboutMeForm.get('description')?.errors!= null && aboutMeForm.get('description')?.touched"  >
+            <small class="text-danger p-1"  *ngIf="aboutMeForm.controls['description'].hasError('required')" >filed is required </small>
+           </div>
           <div class="mb-3">
-            <label for="message-text" class="col-form-label">Info</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <label for="message-text" class="col-form-label">Description</label>
+            <textarea class="form-control" id="message-text"  formControlName="description"></textarea>
           </div>
-          <div class="mb-3">
-            <label for="recipient-aboutMeEdit" class="col-form-label"> Skill</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-        </form>
+          <div class="pb-2"        *ngIf="aboutMeForm.get('tsubrak')?.errors!= null && aboutMeForm.get('subtrak')?.touched"  >
+            <small class="text-danger p-1"  *ngIf="aboutMeForm.controls['subtrak'].hasError('required')" >filed is required </small>
+           </div>
+          <ng-multiselect-dropdown  
+          [placeholder]="'subtrak'"
+          [settings]="dropdownSettings"
+          [data]="dropdownList"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          formControlName="subtrak"
+                >
+            </ng-multiselect-dropdown>
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-save">Send message</button>
+        <button type="submit" class="btn btn-save">Send message</button>
       </div>
+    </form>
     </div>
   </div>
 </div>
@@ -269,28 +302,46 @@
         <h1 class="modal-title fs-5" id="nameLabel">Add Info  </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form      [formGroup]="aboutMeForm"  (ngSubmit)="addAboutMe(aboutMeForm)">
       <div class="modal-body">
-        <form>
+        <div class="pb-2"        *ngIf="aboutMeForm.get('trak')?.errors!= null && aboutMeForm.get('trak')?.touched"  >
+          <small class="text-danger p-1"  *ngIf="aboutMeForm.controls['trak'].hasError('required')" >filed is required </small>
+         </div>
           <div class="mb-3">
-            <label for="recipient-aboutMeEdit" class="col-form-label">Job Title</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Info</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-          <select class="form-select" aria-label="Default select example" multiple>
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
+            <label for="message-text" class="col-form-label">Trak</label>
+          <select class="form-select form-select-lg " aria-label=".form-select-lg example"  formControlName="trak"  >
+        
+            <option value="1" selected>One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
           </select>
-        </form>
+          </div>
+          <div class="pb-2"        *ngIf="aboutMeForm.get('description')?.errors!= null && aboutMeForm.get('description')?.touched"  >
+            <small class="text-danger p-1"  *ngIf="aboutMeForm.controls['description'].hasError('required')" >filed is required </small>
+           </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label"> Description </label>
+            <textarea class="form-control" id="message-text"  formControlName="description"></textarea>
+          </div>
+          <div class="pb-2"        *ngIf="aboutMeForm.get('tsubrak')?.errors!= null && aboutMeForm.get('subtrak')?.touched"  >
+            <small class="text-danger p-1"  *ngIf="aboutMeForm.controls['subtrak'].hasError('required')" >filed is required </small>
+           </div>
+          <ng-multiselect-dropdown  
+     [placeholder]="'subtrak'"
+     [settings]="dropdownSettings"
+      [data]="dropdownList"
+     (onSelect)="onItemSelect($event)"
+     (onSelectAll)="onSelectAll($event)"
+     formControlName="subtrak"
+        >
+    </ng-multiselect-dropdown>
+       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-save">Send message</button>
+        <button type="submit" class="btn btn-save">Send message</button>
       </div>
+    </form>
     </div>
   </div>
 </div>
@@ -308,19 +359,23 @@
         <h1 class="modal-title fs-5" id="nameLabel">Add Work Histry </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <form>
+      <form   [formGroup]="workHistoryForm"  (ngSubmit)="addWorkHistory(workHistoryForm)">
           
+      <div class="modal-body">
+        <div class="pb-2"        *ngIf="workHistoryForm.get('workHistory')?.errors!= null && workHistoryForm.get('workHistory')?.touched"  >
+          <small class="text-danger p-1"  *ngIf="workHistoryForm.controls['workHistory'].hasError('required')" >filed is required </small>
+         </div>
           <div class="mb-3">
-            <label for="message-text" class="col-form-label">MWork Histry :</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <label for="message-text" class="col-form-label">Work Histry :</label>
+            <textarea class="form-control" id="message-text"   formControlName="workHistory"></textarea>
           </div>
-        </form>
+       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-save">Send message</button>
+        <button type="submit" class="btn btn-save">Send message</button>
       </div>
+    </form>
     </div>
   </div>
 </div>
@@ -333,21 +388,57 @@
         <h1 class="modal-title fs-5" id="nameLabel">Edit Work Histry  </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form   [formGroup]="workHistoryForm"  (ngSubmit)="updateWorkHistory(workHistoryForm)">
       <div class="modal-body">
-        <form>
-          
+        <div class="pb-2"        *ngIf="workHistoryForm.get('workHistory')?.errors!= null && workHistoryForm.get('workHistory')?.touched"  >
+          <small class="text-danger p-1"  *ngIf="workHistoryForm.controls['workHistory'].hasError('required')" >filed is required </small>
+         </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Work Histry </label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <textarea class="form-control" id="message-text"    formControlName=" workHistory"></textarea>
           </div>
-        </form>
+       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-save">Send message</button>
+        <button type="submit" class="btn btn-save">Send message</button>
       </div>
+    </form>
     </div>
   </div>
 </div>
 
+</div>
+
+
+<!-- imge----------------------------------------------------------------- -->
+<div class="img_modal">
+  <!-- start -->
+<div class="modal fade" id="img" tabindex="-1" aria-labelledby="img" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="nameLabel">Edit Work Histry  </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form   [formGroup]="imgForm"  (ngSubmit)="updateImg(imgForm)">
+      <div class="modal-body">
+      
+        <div class="pb-2"        *ngIf="imgForm.get('img')?.errors!= null && imgForm.get('img')?.touched"  >
+          <small class="text-danger p-1"  *ngIf="imgForm.controls['img'].hasError('required')" >filed is required </small>
+         </div>
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Uplode Image</label>
+          <input class="form-control" type="file" id="formFile"   formControlName="img">
+        </div>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-save">Send message</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
 </div>

@@ -10,6 +10,9 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HttpClientModule } from '@angular/common/http';
+import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
+// ...
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     CarouselModule ,
     HttpClientModule,
+    NgMultiSelectDropDownModule.forRoot(),
+    ReactiveFormsModule,
   ],
   exports:[
 ProfileComponent,
